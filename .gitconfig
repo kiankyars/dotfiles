@@ -2,10 +2,19 @@
 [user]
 	email = kiankyars@gmail.com
 	name = Kian Kyars
-# Please adapt and uncomment the following lines:
-#	name = Kian Kyars
-#	email = kiankyars@gmail.com
 [alias]
 	ac = !git add -A && git commit
 [push]
 	autoSetupRemote = true
+[commit]
+	verbose = true
+[init]
+	defaultbranch=main
+[color]
+	ui = true
+[fetch]
+    prune = true
+[log]
+	abbrevcommit=true
+[format]
+	pretty=oneline
