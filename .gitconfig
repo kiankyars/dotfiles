@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+	email = kiankyars@gmail.com
+	name = Kian Kyars
+# Please adapt and uncomment the following lines:
+#	name = Kian Kyars
+#	email = kiankyars@gmail.com
+[alias]
+	ac = !git add -A && git commit
+[push]
+	autoSetupRemote = true
