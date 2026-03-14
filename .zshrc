@@ -1,6 +1,3 @@
-set -a  # automatically export all variables
-source ~/.env
-set +a  # turn off auto-export
 [[ -t 0 ]] && stty -ixon
 set -o noclobber
 autoload -Uz compinit
