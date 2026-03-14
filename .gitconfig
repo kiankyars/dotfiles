@@ -16,5 +16,3 @@
     prune = true
 [log]
 	abbrevcommit=true
-[format]
-	pretty=oneline
