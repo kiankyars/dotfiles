@@ -1,0 +1,4 @@
+interface:
+  display_name: "Craft High-Impact Paper"
+  short_description: "Shape impactful, award-worthy research papers"
+  default_prompt: "Use $craft-high-impact-paper to critique my research idea, abstract, and introduction for impact and clarity."

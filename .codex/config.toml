@@ -1,0 +1,128 @@
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+sandbox_mode    = "workspace-write"
+suppress_unstable_features_warning = true
+plan_mode_reasoning_effort = "xhigh"
+web_search = "live"
+approvals_reviewer = "guardian_subagent"
+approval_policy = "on-request"
+[features]
+apply_patch_freeform = true
+prevent_idle_sleep = true
+js_repl = true
+guardian_approval = true
+
+[projects."/Users/kian/Developer"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/openclaw"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/rlhf-book"]
+trust_level = "trusted"
+
+[projects."/Users/kian/obsidian"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/kiankyars.github.io"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/rlhf-book-tutorial"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/judgment-research"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/judgement-labs"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/judgment-labs/monaco"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/spaced-rep"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/vibe-coding"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/autoresearch"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/parameter-golf"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/judgment-agent-harness"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/pinchboard"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/obsidian-spaced-repetition"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Movies"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/dayops"]
+trust_level = "trusted"
+
+
+[projects."/Users/kian/Code/landing-page"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/dwarkesh"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/siri"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Downloads"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/self-improving-swe-bench-pro"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/rlvrbook"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/judgment-cli-rust"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/autoagent"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/unsloth"]
+trust_level = "trusted"
+
+[projects."/Users/kian/.codex"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/docs"]
+trust_level = "trusted"
+
+[mcp_servers.excalidraw-mcp]
+url = "https://mcp.excalidraw.com"
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."canva@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."notion@openai-curated"]
+enabled = true
+
+[plugins."vercel@openai-curated"]
+enabled = true

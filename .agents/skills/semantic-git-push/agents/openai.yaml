@@ -1,0 +1,4 @@
+interface:
+  display_name: "Semantic Git Push"
+  short_description: "Commit current changes with a semantic message"
+  default_prompt: "Use $semantic-git-push to inspect my current branch changes, write a good commit message, commit them, and push the branch."

@@ -22,3 +22,14 @@ if [ -f '/Users/kian/Developer/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/kian/Developer/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kian/Developer/google-cloud-sdk/completion.zsh.inc'; fi
+
+# bun completions
+[ -s "/Users/kian/.bun/_bun" ] && source "/Users/kian/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
