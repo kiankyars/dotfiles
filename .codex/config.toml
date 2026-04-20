@@ -6,6 +6,7 @@ plan_mode_reasoning_effort = "xhigh"
 web_search = "live"
 approvals_reviewer = "guardian_subagent"
 approval_policy = "on-request"
+service_tier = "fast"
 [features]
 apply_patch_freeform = true
 prevent_idle_sleep = true
@@ -103,6 +104,81 @@ trust_level = "trusted"
 [projects."/Users/kian/Code/docs"]
 trust_level = "trusted"
 
+[projects."/Users/kian/Code/parallel-ralph-lab"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260411-161237-k01/control"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260411-170130-k01/control"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/terminal-bench-3"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260411-201310-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260411-203617-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260411-205406-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260411-210800-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-101711-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-123208-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-140958-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-141012-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-152349-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-160615-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-162643-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-172155-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-173341-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-180116-k01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-222222-k02"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-230245-k02/w/a01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-233710-k04/w/a03"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-230245-k02/w/a00"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-233710-k04/w/a02"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-233710-k04/w/a01"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Code/parallel-ralph-lab/runs/20260412-233710-k04/w/a00"]
+trust_level = "trusted"
+
 [mcp_servers.excalidraw-mcp]
 url = "https://mcp.excalidraw.com"
 
@@ -124,5 +200,7 @@ enabled = true
 [plugins."notion@openai-curated"]
 enabled = true
 
-[plugins."vercel@openai-curated"]
-enabled = true
+[marketplaces.openai-bundled]
+last_updated = "2026-04-16T20:05:05Z"
+source_type = "local"
+source = "/Users/kian/.codex/.tmp/bundled-marketplaces/openai-bundled"
