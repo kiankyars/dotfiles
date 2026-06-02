@@ -1,34 +1,84 @@
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# ==============================================================================
+# 1. Environment & PATH Configurations
+# ==============================================================================
+
+# Added by Antigravity CLI installer
+export PATH="/Users/kian/.local/bin:$PATH"
+
+# Bun configuration
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
+
+# ==============================================================================
+# 2. Shell Options & Settings
+# ==============================================================================
+
+# Disable terminal flow control (Ctrl-S / Ctrl-Q) to prevent freeze
 [[ -t 0 ]] && stty -ixon
+
+# Prevent overriding files with '>' redirection (use '>!' or '>|' to override)
 set -o noclobber
+
+# ==============================================================================
+# 3. Autocompletion System
+# ==============================================================================
+
+# Initialize compinit (with caching support for faster startup)
 autoload -Uz compinit
 if [[ -s "${ZDOTDIR:-$HOME}/.zcompdump" ]]; then
   compinit -C
 else
   compinit
 fi
+
+# Bun completions
+[[ -s "/Users/kian/.bun/_bun" ]] && source "/Users/kian/.bun/_bun"
+
+# ==============================================================================
+# 4. Aliases
+# ==============================================================================
+
+# Safety & Navigation
 alias rm='rm -I'
-alias audio='yt-dlp -o "/Users/kian/Music/Music/Media.localized/Music/Unknown Artist/Unknown Album/%(title)s.%(ext)s" -x --audio-format mp3'
-alias journal='open -a VoiceMemos'
-alias loop='ffplay -nodisp -autoexit -loop 0'
-alias songs='cd /Users/kian/Music/Music/Media.localized/Music/Unknown\ Artist/Unknown\ Album/'
-alias video='yt-dlp -o "$HOME/Downloads/%(title)s.%(ext)s" -f "bestvideo+bestaudio/best" --merge-output-format mp4'
-alias config='git --git-dir=/Users/kian/.cfg/ --work-tree=/Users/kian'
 alias cdr='cd $(git rev-parse --show-toplevel)'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kian/Developer/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kian/Developer/google-cloud-sdk/path.zsh.inc'; fi
+# Git Config repository management
+alias config='git --git-dir=/Users/kian/.cfg/ --work-tree=/Users/kian'
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kian/Developer/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kian/Developer/google-cloud-sdk/completion.zsh.inc'; fi
+# Media Downloads & Playback
+alias audio='yt-dlp -o "/Users/kian/Music/Music/Media.localized/Music/Unknown Artist/Unknown Album/%(title)s.%(ext)s" -x --audio-format mp3'
+alias video='yt-dlp -o "$HOME/Downloads/%(title)s.%(ext)s" -f "bestvideo+bestaudio/best" --merge-output-format mp4'
+alias loop='ffplay -nodisp -autoexit -af "volume=3.0"'
+alias songs='cd /Users/kian/Music/Music/Media.localized/Music/Unknown\ Artist/Unknown\ Album/'
 
-# bun completions
-[ -s "/Users/kian/.bun/_bun" ] && source "/Users/kian/.bun/_bun"
+# Productivity & Utilities
+alias journal='open -a VoiceMemos'
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# ==============================================================================
+# 5. External Integrations
+# ==============================================================================
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# Google Cloud SDK path updates
+if [ -f '/Users/kian/Developer/google-cloud-sdk/path.zsh.inc' ]; then
+  source '/Users/kian/Developer/google-cloud-sdk/path.zsh.inc'
+fi
+
+# Google Cloud SDK shell command completion
+if [ -f '/Users/kian/Developer/google-cloud-sdk/completion.zsh.inc' ]; then
+  source '/Users/kian/Developer/google-cloud-sdk/completion.zsh.inc'
+fi
+
+# ==============================================================================
+# 6. Plugins & Styling (Must be loaded last)
+# ==============================================================================
+
+# Source syntax highlighting if available
+if [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

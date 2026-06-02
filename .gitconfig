@@ -2,17 +2,29 @@
 [user]
 	email = kiankyars@gmail.com
 	name = Kian Kyars
-[alias]
-	ac = !git add -A && git commit
+
+[init]
+	defaultBranch = main
+
 [push]
 	autoSetupRemote = true
+
+[pull]
+	# Rebase instead of creating a merge commit when pulling updates
+	rebase = true
+
 [commit]
 	verbose = true
-[init]
-	defaultbranch=main
+
 [color]
 	ui = true
+
 [fetch]
-    prune = true
+	# Prune remote tracking branches that no longer exist on the remote
+	prune = true
+
 [log]
-	abbrevcommit=true
+	abbrevCommit = true
+
+[alias]
+	ac = !git add -A && git commit
