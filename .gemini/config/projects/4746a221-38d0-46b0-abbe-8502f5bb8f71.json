@@ -1,0 +1,14 @@
+{
+  "id":  "4746a221-38d0-46b0-abbe-8502f5bb8f71",
+  "name":  "/Users/kian/Developer",
+  "projectResources":  {
+    "resources":  [
+      {
+        "gitFolder":  {
+          "folderUri":  "file:///Users/kian/Developer",
+          "allowWrite":  true
+        }
+      }
+    ]
+  }
+}

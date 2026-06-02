@@ -1,0 +1,14 @@
+{
+  "id":  "be49f244-e70a-446d-aef5-528c8116d7ba",
+  "name":  "/Users/kian/Developer/dylan",
+  "projectResources":  {
+    "resources":  [
+      {
+        "gitFolder":  {
+          "folderUri":  "file:///Users/kian/Developer/dylan",
+          "allowWrite":  true
+        }
+      }
+    ]
+  }
+}

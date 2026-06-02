@@ -1,0 +1,14 @@
+{
+  "id":  "56ba549b-91a8-4efc-a743-e2b1ce3e5093",
+  "name":  "/Users/kian/obsidian",
+  "projectResources":  {
+    "resources":  [
+      {
+        "gitFolder":  {
+          "folderUri":  "file:///Users/kian/obsidian",
+          "allowWrite":  true
+        }
+      }
+    ]
+  }
+}

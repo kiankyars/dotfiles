@@ -1,0 +1,14 @@
+{
+  "id":  "bd1544da-b69e-4915-89c6-15eb19d81f74",
+  "name":  "/Users/kian/Code/judgment-research",
+  "projectResources":  {
+    "resources":  [
+      {
+        "gitFolder":  {
+          "folderUri":  "file:///Users/kian/Code/judgment-research",
+          "allowWrite":  true
+        }
+      }
+    ]
+  }
+}
