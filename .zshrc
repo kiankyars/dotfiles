@@ -60,6 +60,18 @@ alias songs='cd /Users/kian/Music/Music/Media.localized/Music/Unknown\ Artist/Un
 # Productivity & Utilities
 alias journal='open -a VoiceMemos'
 
+# Sync Homebrew bundle and Cursor extensions
+brew-sync() {
+  echo "==> Syncing system packages with Homebrew..."
+  brew bundle --file=~/.Brewfile
+  if command -v cursor >/dev/null 2>&1; then
+    echo "==> Syncing Cursor extensions..."
+    grep '^# vscode ' ~/.Brewfile | cut -d'"' -f2 | xargs -I{} cursor --install-extension {}
+  else
+    echo "==> Cursor CLI not found, skipping extension sync."
+  fi
+}
+
 # ==============================================================================
 # 5. External Integrations
 # ==============================================================================
