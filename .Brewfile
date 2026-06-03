@@ -62,6 +62,8 @@ cask "steipete/tap/codexbar"
 cask "raycast"
 # Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
 cask "redis/redis/redis"
+# Write, edit, and chat about your code with AI
+cask "cursor"
 # vscode "anysphere.cursorpyright"
 # vscode "anysphere.remote-ssh"
 # vscode "github.vscode-github-actions"
