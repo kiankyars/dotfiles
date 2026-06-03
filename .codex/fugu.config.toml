@@ -1,2 +1,5 @@
 model = "fugu-ultra"
 model_provider = "sakana"
+
+[features]
+image_generation = false
