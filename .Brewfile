@@ -64,6 +64,8 @@ cask "raycast"
 cask "redis/redis/redis"
 # Write, edit, and chat about your code with AI
 cask "cursor"
+# Command-line agent for Cursor
+cask "cursor-cli"
 # vscode "anysphere.cursorpyright"
 # vscode "anysphere.remote-ssh"
 # vscode "github.vscode-github-actions"
