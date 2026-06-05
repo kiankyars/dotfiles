@@ -365,6 +365,9 @@ url = "https://mcp.excalidraw.com"
 [mcp_servers.openaiDeveloperDocs]
 url = "https://developers.openai.com/mcp"
 
+[mcp_servers.judgment-mcp]
+url = "https://mcp.judgmentlabs.ai"
+
 [plugins."google-calendar@openai-curated"]
 enabled = true
 
