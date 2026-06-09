@@ -1,0 +1,16 @@
+# Claude Code runtime / state file
+# 
+# .claude.json is primarily:
+#   - Remote experiment flags (cachedGrowthBookFeatures, Statsig, etc.)
+#   - Per-project usage history, costs, token counts, last sessions (tied to absolute local paths)
+#   - Counters and "ever seen" state (tips, MCP connections, etc.)
+#
+# It is not a good candidate for dotfiles because it is very noisy and machine-specific.
+#
+# The actually useful cross-machine configuration lives in:
+#   - .claude/settings.json   (model, enabledPlugins, permissions, voice, custom marketplaces, skips, theme, etc.)
+#   - .claude/skills          (symlink → ~/.agents/skills)
+#
+# Custom prompts, skills, and reusable workflows should live in your skills directory
+# or dedicated files rather than being buried in this runtime blob.
+.claude.json
