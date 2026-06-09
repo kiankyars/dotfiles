@@ -8,6 +8,7 @@ approvals_reviewer = "guardian_subagent"
 approval_policy = "on-request"
 
 notify = ["/Users/kian/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+service_tier = "default"
 
 [features]
 # cmux-codex-hooks-feature-78f1e4ba-66df-4d35-93c1-67fdf1cbb7df begin
@@ -15,7 +16,7 @@ hooks = true
 # cmux-codex-hooks-feature-78f1e4ba-66df-4d35-93c1-67fdf1cbb7df end
 apply_patch_freeform = true
 prevent_idle_sleep = true
-js_repl = true
+js_repl = false
 guardian_approval = true
 external_migration = true
 goals = true
@@ -359,6 +360,12 @@ trust_level = "trusted"
 [projects."/Users/kian/Developer/intuit-rl-envs"]
 trust_level = "trusted"
 
+[projects."/Users/kian/Code/judgment-mono"]
+trust_level = "trusted"
+
+[projects."/Users/kian/Developer/podcast-intel"]
+trust_level = "trusted"
+
 [mcp_servers.excalidraw-mcp]
 url = "https://mcp.excalidraw.com"
 
@@ -367,6 +374,25 @@ url = "https://developers.openai.com/mcp"
 
 [mcp_servers.judgment-mcp]
 url = "https://mcp.judgmentlabs.ai"
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/Codex.app/Contents/Resources/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = ""
+NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/kian/.codex"
+CODEX_HOME = "/Users/kian/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "4946b004b23af02244ece97240aceb8d123475207fa6a6fc399486bd7086049f"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.602.71036"
+CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
 
 [plugins."google-calendar@openai-curated"]
 enabled = true
@@ -402,12 +428,12 @@ enabled = true
 enabled = true
 
 [marketplaces.openai-bundled]
-last_updated = "2026-06-01T18:36:38Z"
+last_updated = "2026-06-09T01:17:37Z"
 source_type = "local"
 source = "/Users/kian/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-05-21T04:46:58Z"
+last_updated = "2026-06-09T01:18:04Z"
 source_type = "local"
 source = "/Users/kian/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
@@ -439,4 +465,8 @@ trusted_hash = "sha256:cf1a0d4509a5a61c0bf5508504812f12cdc8865b4c2c227cab83b9c41
 trusted_hash = "sha256:dac91f409888af4494318e15f200cac217d7259d2daaadd3a5c94ceb909224a2"
 [hooks.state."/Users/kian/.codex/hooks.json:stop:0:0"]
 trusted_hash = "sha256:ae07c3513f9e11fd3b7ea93d8b924dfa9726b44e97b425fa9cfbbd22727f8e0b"
+
+[desktop]
+conversationDetailMode = "STEPS_COMMANDS"
+ambient-suggestions-enabled = false
 # cmux-codex-hook-trust-f5cc24da-7a09-4b20-a756-89e7786f6738 end
