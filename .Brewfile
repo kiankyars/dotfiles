@@ -66,6 +66,8 @@ cask "redis/redis/redis"
 cask "cursor"
 # Command-line agent for Cursor
 cask "cursor-cli"
+# Google Cloud CLI
+cask "gcloud-cli"
 # vscode "anysphere.cursorpyright"
 # vscode "anysphere.remote-ssh"
 # vscode "github.vscode-github-actions"

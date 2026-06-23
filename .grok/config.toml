@@ -13,3 +13,10 @@ theme = "auto"
 [plugins]
 disabled = []
 enabled = ["user/127bfd3d/slack"]
+
+[marketplace]
+official_marketplace_auto_installed = true
+
+[[marketplace.sources]]
+name = "xAI Official"
+git = "https://github.com/xai-org/plugin-marketplace.git"

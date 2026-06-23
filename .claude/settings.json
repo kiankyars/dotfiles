@@ -2,7 +2,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "claude-opus-4-8[1m]",
+  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
     "context-engineering@context-engineering-marketplace": true,
     "context7@claude-plugins-official": true,
@@ -28,5 +28,6 @@
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "effortLevel": "high"
 }
