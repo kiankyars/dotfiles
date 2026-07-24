@@ -1,6 +1,6 @@
 # headless-subagents
 
-Instruct the agent on how to use Grok, Gemini, and AGY as headless subagents to scale concurrency without rate limits, checking CodexBar for usage limits.
+Instruct the agent on how to use Grok and AGY as headless subagents to scale concurrency without rate limits, checking CodexBar for usage limits.
 
 ## Installation
 

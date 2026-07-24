@@ -2,7 +2,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "opus[1m]",
   "enabledPlugins": {
     "context-engineering@context-engineering-marketplace": true,
     "context7@claude-plugins-official": true,
@@ -24,10 +24,16 @@
       }
     }
   },
+  "effortLevel": "high",
+  "voice": {
+    "enabled": true,
+    "mode": "tap"
+  },
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "effortLevel": "high"
+  "voiceEnabled": true
 }
