@@ -1,1 +1,5 @@
 .DS_Store
+
+# Codex rewrites this on every launch — plugin versions, cache paths,
+# trusted-client hashes, timestamps. Tracking it is pure churn.
+.codex/config.toml
