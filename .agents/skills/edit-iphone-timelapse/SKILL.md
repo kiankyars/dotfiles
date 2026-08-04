@@ -17,6 +17,6 @@ Make the video entirely through CLI tools. Exercise editorial judgment; this is 
 
 Use the newest JSON index in `~/Library/Application Support/minecraft/assets/indexes/`. Its `minecraft/sounds/music/` entries map logical track names to hashes stored at `assets/objects/<first two hash characters>/<hash>`. The files are Ogg audio and FFmpeg can read them directly.
 
-Choose a fitting track and a valid starting offset. Vary both across videos; inspect metadata on recent time-lapse outputs when available to avoid repeating the same track slice. Record the logical track name and offset in the output MP4 metadata so a later run can avoid it.
+Choose a fitting track and a fresh valid starting offset each run so the music slice varies. Do not add tracking metadata or sidecar files.
 
 Do not analyze the frames, create X post copy or bullet points, interact with X, import the result into Photos, or delete anything from Photos.
