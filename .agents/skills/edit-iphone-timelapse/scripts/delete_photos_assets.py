@@ -85,7 +85,17 @@ def main() -> int:
         parser.error("--uuid is required unless --request-authorization is used")
 
     if not args.confirm_delete:
-        print(json.dumps({"deleted": 0, "dry_run": True, "uuids": args.uuid}, indent=2))
+        print(
+            json.dumps(
+                {
+                    "deleted": 0,
+                    "error": "Deletion not requested; rerun with --confirm-delete.",
+                    "uuids": args.uuid,
+                },
+                indent=2,
+            ),
+            file=sys.stderr,
+        )
         return 2
 
     try:
