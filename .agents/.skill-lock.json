@@ -9,43 +9,6 @@
       "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
       "installedAt": "2026-03-06T20:13:29.782Z",
       "updatedAt": "2026-03-06T20:13:29.782Z"
-    },
-    "excalidraw-diagram-generator": {
-      "source": "github/awesome-copilot",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/github/awesome-copilot.git",
-      "skillPath": "skills/excalidraw-diagram-generator/SKILL.md",
-      "skillFolderHash": "ba20eb1474ed8c2123f2a98e36f822b9bf369834",
-      "installedAt": "2026-04-05T17:51:30.516Z",
-      "updatedAt": "2026-04-05T17:51:30.516Z"
-    },
-    "stop-slop": {
-      "source": "hardikpandya/stop-slop",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/hardikpandya/stop-slop.git",
-      "skillPath": "SKILL.md",
-      "skillFolderHash": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "installedAt": "2026-04-14T23:37:47.719Z",
-      "updatedAt": "2026-04-14T23:37:47.719Z"
-    },
-    "handoff": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/productivity/handoff/SKILL.md",
-      "skillFolderHash": "7bbb60d64c911617cee7f71b2ba9e24364faa14e",
-      "pluginName": "mattpocock-skills",
-      "installedAt": "2026-05-25T22:40:48.184Z",
-      "updatedAt": "2026-05-25T22:40:48.184Z"
-    },
-    "skill-create": {
-      "source": "skillscatalog/registry",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/skillscatalog/registry.git",
-      "skillPath": "skills/skill-create/SKILL.md",
-      "skillFolderHash": "67ae43dff3dcb5813f38fda5c7c7764dae6aca96",
-      "installedAt": "2026-06-04T05:56:40.327Z",
-      "updatedAt": "2026-06-04T05:56:40.327Z"
     }
   },
   "dismissed": {
