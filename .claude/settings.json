@@ -1,17 +1,17 @@
 {
+  "disableDeepLinkRegistration": "disable",
   "permissions": {
     "defaultMode": "auto"
   },
   "skillOverrides": {
     "craft-high-impact-paper": "user-invocable-only"
   },
-  "model": "opus[1m]",
+  "model": "claude-opus-4-8[1m]",
   "enabledPlugins": {
     "context-engineering@context-engineering-marketplace": true,
     "context7@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "remember@claude-plugins-official": true,
-    "vercel@claude-plugins-official": true
+    "remember@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "vercel-vercel-plugin": {
@@ -27,16 +27,9 @@
       }
     }
   },
-  "effortLevel": "high",
-  "voice": {
-    "enabled": true,
-    "mode": "tap"
-  },
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
 }
