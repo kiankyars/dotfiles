@@ -2,6 +2,9 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "skillOverrides": {
+    "craft-high-impact-paper": "user-invocable-only"
+  },
   "model": "opus[1m]",
   "enabledPlugins": {
     "context-engineering@context-engineering-marketplace": true,
