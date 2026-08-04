@@ -1,0 +1,4 @@
+interface:
+  display_name: "Edit iPhone Timelapses"
+  short_description: "Edit Photos time-lapses with Minecraft music"
+  default_prompt: "Use $edit-iphone-timelapse to turn my latest iPhone time-lapse into a finished video in Downloads."

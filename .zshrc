@@ -91,16 +91,6 @@ synchronisation() {
 # 5. External Integrations
 # ==============================================================================
 
-# Google Cloud SDK path updates
-if [ -f '/Users/kian/Developer/google-cloud-sdk/path.zsh.inc' ]; then
-  source '/Users/kian/Developer/google-cloud-sdk/path.zsh.inc'
-fi
-
-# Google Cloud SDK shell command completion
-if [ -f '/Users/kian/Developer/google-cloud-sdk/completion.zsh.inc' ]; then
-  source '/Users/kian/Developer/google-cloud-sdk/completion.zsh.inc'
-fi
-
 # ==============================================================================
 # 6. Plugins & Styling (Must be loaded last)
 # ==============================================================================

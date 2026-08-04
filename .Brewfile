@@ -1,7 +1,4 @@
-tap "hashicorp/tap"
-tap "homebrew/autoupdate"
-tap "redis/redis"
-tap "steipete/tap"
+tap "domt4/autoupdate"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Isolated development environments using Docker
@@ -16,16 +13,12 @@ brew "fdupes"
 brew "ffmpeg"
 # GitHub command-line tool
 brew "gh"
-# Cross-platform program for developing Haskell projects
-brew "haskell-stack"
 # Client library for huggingface.co hub
 brew "hf"
 # Library to render SVG files using Cairo
 brew "librsvg"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node@22"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Pandoc filter for numbering and cross-referencing
@@ -38,8 +31,6 @@ brew "poppler"
 brew "postgresql@14"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
-# Command-line interface for Render
-brew "render"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Display directories as trees (with optional color/HTML output)
@@ -54,20 +45,8 @@ brew "wget"
 brew "yt-dlp"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Terraform
-brew "hashicorp/tap/terraform"
-# Menu bar usage monitor for Codex and Claude
-cask "steipete/tap/codexbar"
 # Control your tools with a few keystrokes
 cask "raycast"
-# Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
-cask "redis/redis/redis"
-# Write, edit, and chat about your code with AI
-cask "cursor"
-# Command-line agent for Cursor
-cask "cursor-cli"
-# Google Cloud CLI
-cask "gcloud-cli"
 # vscode "anysphere.cursorpyright"
 # vscode "anysphere.remote-ssh"
 # vscode "github.vscode-github-actions"
@@ -87,13 +66,12 @@ uv "awscli"
 uv "fr8"
 uv "harbor"
 uv "modal"
+uv "osxphotos"
 uv "prime"
 uv "quarto-cli"
 uv "wandb"
 uv "youtube-transcript-api"
-cask "claude-code"
 npm "@browserbasehq/browse-cli"
-npm "@google/gemini-cli"
 npm "@googleworkspace/cli"
 npm "@loongphy/codex-auth"
 npm "@openai/codex"
