@@ -9,6 +9,24 @@
       "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
       "installedAt": "2026-03-06T20:13:29.782Z",
       "updatedAt": "2026-03-06T20:13:29.782Z"
+    },
+    "craft-high-impact-paper": {
+      "source": "kiankyars/dotfiles",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kiankyars/dotfiles.git",
+      "skillPath": ".agents/skills/craft-high-impact-paper/SKILL.md",
+      "skillFolderHash": "22c7df480e529fd73e9e982d1165db7e3c18e01b",
+      "installedAt": "2026-08-04T22:24:29.399Z",
+      "updatedAt": "2026-08-04T22:24:29.399Z"
+    },
+    "edit-iphone-timelapse": {
+      "source": "kiankyars/dotfiles",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kiankyars/dotfiles.git",
+      "skillPath": ".agents/skills/edit-iphone-timelapse/SKILL.md",
+      "skillFolderHash": "9fd20b9f63ad4b4b9e0b335fef910fd91d966c27",
+      "installedAt": "2026-08-04T22:24:29.402Z",
+      "updatedAt": "2026-08-04T22:24:29.402Z"
     }
   },
   "dismissed": {
