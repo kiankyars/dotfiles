@@ -1,7 +1,7 @@
 interface:
   display_name: "Edit iPhone Timelapses"
-  short_description: "Edit Photos time-lapses with Minecraft music"
-  default_prompt: "Use $edit-iphone-timelapse to turn my latest iPhone time-lapse into a finished video in Downloads."
+  short_description: "Make verified 60-second, 60 fps time-lapse edits"
+  default_prompt: "Use $edit-iphone-timelapse to turn my latest iPhone recordings into a verified 60-second, 60 fps video in Downloads."
 
 policy:
   allow_implicit_invocation: false
