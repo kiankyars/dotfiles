@@ -1,4 +1,0 @@
-interface:
-  display_name: "Shared Agent Context"
-  short_description: "Use durable cross-agent context carefully"
-  default_prompt: "Use $use-agent-context to ground this task in my durable cross-project context."

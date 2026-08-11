@@ -27,15 +27,6 @@
       "skillFolderHash": "c7e7287c59896e53dccaf3d6886604c64340fe55",
       "installedAt": "2026-08-04T22:24:29.402Z",
       "updatedAt": "2026-08-06T18:28:33.877Z"
-    },
-    "use-agent-context": {
-      "source": "kiankyars/dotfiles",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/kiankyars/dotfiles.git",
-      "skillPath": ".agents/skills/use-agent-context/SKILL.md",
-      "skillFolderHash": "7175cb81b84501ffb7ffe5b4b968c08d1bc9a845",
-      "installedAt": "2026-08-06T18:28:19.084Z",
-      "updatedAt": "2026-08-06T18:28:19.084Z"
     }
   },
   "dismissed": {
