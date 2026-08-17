@@ -1,8 +1,8 @@
 tap "domt4/autoupdate"
 # Pack, ship and run any application as a lightweight container
-brew "docker"
+brew "docker" unless File.directory?("/Applications/Docker.app")
 # Isolated development environments using Docker
-brew "docker-compose"
+brew "docker-compose" unless File.directory?("/Applications/Docker.app")
 # Docker Credential Helper for Amazon ECR
 brew "docker-credential-helper-ecr"
 # Efficient Duplicate File Finder
@@ -27,8 +27,6 @@ brew "pandoc-crossref"
 brew "pnpm"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
-# Object-relational database system
-brew "postgresql@14"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
@@ -46,7 +44,7 @@ brew "yt-dlp"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
 # Control your tools with a few keystrokes
-cask "raycast"
+cask "raycast" unless File.directory?("/Applications/Raycast.app")
 # vscode "anysphere.cursorpyright"
 # vscode "anysphere.remote-ssh"
 # vscode "github.vscode-github-actions"

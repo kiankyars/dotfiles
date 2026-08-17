@@ -60,7 +60,7 @@ alias songs='cd /Users/kian/Music/Music/Media.localized/Music/Unknown\ Artist/Un
 # Productivity & Utilities
 alias journal='open -a VoiceMemos'
 
-# Sync system packages, Cursor extensions, dotfiles configuration, and LaunchAgents
+# Sync system packages, Cursor extensions, and dotfiles configuration
 synchronisation() {
   echo "==> Syncing system packages with Homebrew..."
   brew bundle --file=~/.Brewfile
@@ -74,16 +74,6 @@ synchronisation() {
   if [ -d "$HOME/.cfg" ]; then
     echo "==> Configuring dotfiles repository to only show tracked files..."
     git --git-dir="$HOME/.cfg" --work-tree="$HOME" config --local status.showUntrackedFiles no
-  fi
-
-  if [ -f "$HOME/Library/LaunchAgents/com.obsidian.daily-git-sync.plist" ]; then
-    echo "==> Registering Obsidian daily git sync LaunchAgent..."
-    if ! launchctl print gui/$(id -u)/com.obsidian.daily-git-sync >/dev/null 2>&1; then
-      launchctl bootstrap gui/$(id -u) "$HOME/Library/LaunchAgents/com.obsidian.daily-git-sync.plist"
-      echo "    LaunchAgent registered successfully."
-    else
-      echo "    LaunchAgent already registered."
-    fi
   fi
 }
 

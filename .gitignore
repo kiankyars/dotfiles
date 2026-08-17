@@ -3,3 +3,6 @@
 # Codex rewrites this on every launch — plugin versions, cache paths,
 # trusted-client hashes, timestamps. Tracking it is pure churn.
 .codex/config.toml
+
+# Machine-local automation belongs outside the shared dotfiles repository.
+Library/LaunchAgents/com.obsidian.daily-git-sync.plist
