@@ -9,12 +9,6 @@ export PATH="/Users/kian/.local/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# >>> grok installer >>>
-export PATH="$HOME/.grok/bin:$PATH"
-fpath=(~/.grok/completions/zsh $fpath)
-autoload -Uz compinit && compinit -C
-# <<< grok installer <<<
-
 # ==============================================================================
 # 2. Shell Options & Settings
 # ==============================================================================
@@ -60,15 +54,69 @@ alias songs='cd /Users/kian/Music/Music/Media.localized/Music/Unknown\ Artist/Un
 # Productivity & Utilities
 alias journal='open -a VoiceMemos'
 
-# Sync system packages, Cursor extensions, and dotfiles configuration
+# Install a vendor-native CLI only when it is missing.
+_install_native_cli() {
+  local display_name="$1"
+  local command_name="$2"
+  local installer_url="$3"
+  local installer_path
+  local temporary_root="${TMPDIR:-/tmp}"
+
+  if command -v "$command_name" >/dev/null 2>&1; then
+    echo "==> $display_name already installed."
+    return 0
+  fi
+
+  echo "==> Installing $display_name with its official installer..."
+  installer_path="$(mktemp "${temporary_root%/}/${command_name}-installer.XXXXXX")" || return 1
+
+  if ! /usr/bin/curl --fail --silent --show-error --location "$installer_url" --output "$installer_path"; then
+    /bin/rm -f "$installer_path"
+    echo "Failed to download the $display_name installer." >&2
+    return 1
+  fi
+
+  if ! /bin/bash "$installer_path"; then
+    /bin/rm -f "$installer_path"
+    echo "Failed to install $display_name." >&2
+    return 1
+  fi
+
+  /bin/rm -f "$installer_path"
+  rehash
+
+  if ! command -v "$command_name" >/dev/null 2>&1; then
+    echo "$display_name installed, but $command_name is not available on PATH." >&2
+    return 1
+  fi
+}
+
+# Sync command-line tools, Cursor extensions, and dotfiles configuration.
 synchronisation() {
-  echo "==> Syncing system packages with Homebrew..."
-  brew bundle --file=~/.Brewfile
-  if command -v cursor >/dev/null 2>&1; then
-    echo "==> Syncing Cursor extensions..."
-    grep '^# vscode ' ~/.Brewfile | cut -d'"' -f2 | xargs -I{} cursor --install-extension {}
+  local autoupdate_plist="$HOME/Library/LaunchAgents/com.github.domt4.homebrew-autoupdate.plist"
+  local cursor_launcher="/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
+  local extension_id
+
+  echo "==> Syncing command-line tools with Homebrew..."
+  brew bundle --file="$HOME/.Brewfile" || return 1
+
+  if [[ ! -f "$autoupdate_plist" ]]; then
+    echo "==> Configuring weekly Homebrew autoupdate..."
+    brew autoupdate start 1w --upgrade --cleanup --leaves-only --no-notify || return 1
   else
-    echo "==> Cursor CLI not found, skipping extension sync."
+    echo "==> Homebrew autoupdate already configured."
+  fi
+
+  _install_native_cli "Grok CLI" "grok" "https://x.ai/cli/install.sh" || return 1
+  _install_native_cli "Claude Code" "claude" "https://claude.ai/install.sh" || return 1
+
+  if [[ -x "$cursor_launcher" ]]; then
+    echo "==> Syncing Cursor extensions..."
+    while IFS= read -r extension_id; do
+      "$cursor_launcher" --install-extension "$extension_id" || return 1
+    done < <(sed -n 's/^# vscode "\([^"]*\)".*/\1/p' "$HOME/.Brewfile")
+  else
+    echo "==> Cursor.app not found, skipping Cursor extension sync."
   fi
 
   if [ -d "$HOME/.cfg" ]; then
@@ -82,10 +130,16 @@ synchronisation() {
 # ==============================================================================
 
 # ==============================================================================
-# 6. Plugins & Styling (Must be loaded last)
+# 6. Plugins & Styling
 # ==============================================================================
 
 # Source syntax highlighting if available
 if [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<

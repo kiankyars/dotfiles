@@ -1,4 +1,4 @@
-tap "domt4/autoupdate"
+tap "domt4/autoupdate", trusted: { command: "autoupdate" }
 # Pack, ship and run any application as a lightweight container
 brew "docker" unless File.directory?("/Applications/Docker.app")
 # Isolated development environments using Docker
@@ -43,8 +43,8 @@ brew "wget"
 brew "yt-dlp"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Control your tools with a few keystrokes
-cask "raycast" unless File.directory?("/Applications/Raycast.app")
+# Command-line agent for Cursor
+cask "cursor-cli"
 # vscode "anysphere.cursorpyright"
 # vscode "anysphere.remote-ssh"
 # vscode "github.vscode-github-actions"
