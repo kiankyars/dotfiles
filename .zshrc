@@ -2,12 +2,8 @@
 # 1. Environment & PATH Configurations
 # ==============================================================================
 
-# Added by Antigravity CLI installer
-export PATH="/Users/kian/.local/bin:$PATH"
-
-# Bun configuration
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# User-local commands installed by native tools
+export PATH="$HOME/.local/bin:$PATH"
 
 # ==============================================================================
 # 2. Shell Options & Settings
@@ -30,9 +26,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zcompdump" ]]; then
 else
   compinit
 fi
-
-# Bun completions
-[[ -s "/Users/kian/.bun/_bun" ]] && source "/Users/kian/.bun/_bun"
 
 # ==============================================================================
 # 4. Aliases
@@ -91,6 +84,36 @@ _install_native_cli() {
   fi
 }
 
+# Keep vendor-specific CLI names explicit: `grok` and `cursor-agent`.
+_remove_ambiguous_agent_launchers() {
+  local launcher
+  local target
+
+  for launcher in "$HOME/.grok/bin/agent" "$HOME/.local/bin/agent"; do
+    if [[ ! -L "$launcher" ]]; then
+      if [[ -e "$launcher" ]]; then
+        echo "Refusing to remove unexpected non-symlink: $launcher" >&2
+        return 1
+      fi
+      continue
+    fi
+
+    target="$(/usr/bin/readlink "$launcher")" || return 1
+    case "$target" in
+      *grok*|*cursor-agent*)
+        /bin/rm -f "$launcher" || return 1
+        echo "==> Removed ambiguous agent launcher: $launcher"
+        ;;
+      *)
+        echo "Refusing to remove unexpected agent symlink: $launcher -> $target" >&2
+        return 1
+        ;;
+    esac
+  done
+
+  rehash
+}
+
 # Sync command-line tools, Cursor extensions, and dotfiles configuration.
 synchronisation() {
   local autoupdate_plist="$HOME/Library/LaunchAgents/com.github.domt4.homebrew-autoupdate.plist"
@@ -109,6 +132,7 @@ synchronisation() {
 
   _install_native_cli "Grok CLI" "grok" "https://x.ai/cli/install.sh" || return 1
   _install_native_cli "Claude Code" "claude" "https://claude.ai/install.sh" || return 1
+  _remove_ambiguous_agent_launchers || return 1
 
   if [[ -x "$cursor_launcher" ]]; then
     echo "==> Syncing Cursor extensions..."

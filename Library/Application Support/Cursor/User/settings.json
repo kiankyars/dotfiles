@@ -50,5 +50,7 @@
     "editor.indentSize": "tabSize",
     "editor.detectIndentation": false,
     "editor.insertSpaces": true,
-    "diffEditor.hideUnchangedRegions.enabled": true
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.renderSideBySide": false,
+    "cursor.inlineDiff.mode": "unified"
 }
