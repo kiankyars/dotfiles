@@ -1,7 +1,7 @@
 interface:
   display_name: "Edit iPhone Timelapses"
-  short_description: "Make verified 60-second, 60 fps time-lapse edits"
-  default_prompt: "Use $edit-iphone-timelapse to turn my latest iPhone recordings into a verified 60-second, 60 fps video in Downloads."
+  short_description: "Turn dated iPhone clips into timelapses"
+  default_prompt: "Use $edit-iphone-timelapse to make a timelapse from my iPhone recordings for the date and duration I specify."
 
 policy:
   allow_implicit_invocation: false

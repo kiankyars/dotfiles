@@ -1,22 +1,14 @@
 ---
 name: edit-iphone-timelapse
-description: Create a caption-free 60-second edit from relevant iPhone videos in Apple Photos, including ordinary recordings accidentally made instead of Time-lapse, with Minecraft music and exact-source cleanup.
+description: Create caption-free iPhone timelapse videos from every movie captured on a requested date in Apple Photos, combined chronologically with Minecraft music and rendered to the requested duration. Use when the user asks to make or process a dated iPhone timelapse.
 ---
 
 # Edit iPhone Timelapses
 
-## Output
-
-- Default to exactly 60.000 seconds, 1920x1080, 60 fps/3,600 frames, H.264/yuv420p with stereo AAC.
-- Put the represented human duration in the filename and summary, never in the video frames.
-- Use the shell for `osxphotos`, `ffprobe`, and FFmpeg; use app control only for Photos.
-
-## Workflow
-
-1. Wait for import or iCloud sync to settle. Search every movie in the requested local-time window—not only the **Time-lapse** album—and reconcile the count with the user. Lock each source's UUID and identifying metadata.
-2. Export the locked UUIDs together into disposable temporary space. Remove temporary exports on every exit path; never retain them as backups.
-3. Derive represented wall-clock intervals cautiously from Photos and QuickTime metadata. For an ordinary video, use its verified start plus encoded duration. Merge overlaps, exclude gaps, and ask rather than guess when timing conflicts.
-4. Allocate 3,600 frames chronologically and in proportion to represented time. Render from the originals and prefer distinct frames; never fake 60 fps by duplicating a completed 30 fps edit. Interpolate only when necessary and visually sound. Convert HDR or Dolby Vision accurately to BT.709 SDR.
-5. Add a fresh natural-speed 60-second segment of `~/Music/Music/Media.localized/Music/Unknown Artist/Unknown Album/Minecraft.mp3` with a short fade-out. Write the candidate to `~/Downloads` under a unique filename; never overwrite an existing export.
-6. Before replacement or cleanup, verify duration, frame rate/count, streams, full decode, audio, metadata, source coverage, and transitions.
-7. Explicit invocation includes moving locked sources to Recently Deleted unless the user opts out. Delete only exact UUID matches; verify each is absent from the active library and present in Recently Deleted. If identity or verification is uncertain, leave Photos untouched and report it.
+1. Resolve the requested local date. Use the duration explicitly provided in the conversation; if none is provided, ask for it before starting.
+2. Query every movie in that date window once through background Photos scripting, including ordinary movies recorded instead of Time-lapse. Export the originals together to one temporary directory without opening or activating Photos.
+3. Order the clips by capture time and use their full contents as recorded. Derive represented time from their QuickTime start and end times, excluding gaps and merging overlaps, then allocate output frames proportionally. Preserve native pixel orientation when QuickTime display-matrix metadata conflicts; for already-horizontal pixels, disable autorotation with `-noautorotate`. Keep the work limited to combining and retiming the recordings unless the user asks for editorial changes.
+4. Read `references/music-offsets.tsv`, choose a fresh segment of `~/Music/Music/Media.localized/Music/Unknown Artist/Unknown Album/Minecraft.mp3`, keep it at natural speed, and add a short fade-out.
+5. Render one caption-free MP4 in `~/Downloads` named `iPhone Timelapse - YYYY-MM-DD - REPRESENTED - DURATIONs.mp4`. Do not overwrite an existing file.
+6. Produce exactly the requested duration at 1920x1080 and 60 fps, with `duration * 60` frames, H.264 High/yuv420p BT.709 video, fast start, and stereo 48 kHz AAC audio.
+7. Check the finished file once with `ffprobe` and one full decode. Confirm duration, dimensions, frame rate, frame count, and audio/video streams, then report the output path and the clips used.
