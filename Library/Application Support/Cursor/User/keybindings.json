@@ -1,0 +1,49 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "cmd+l",
+        "command": "composerMode.chat"
+    },
+    {
+        "key": "shift+cmd+p",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "shift+cmd+p",
+        "command": "-workbench.action.showCommands"
+    },
+    {
+        "key": "shift+cmd+s",
+        "command": "-workbench.action.backgroundComposer.toggleSidebar",
+        "when": "backgroundComposerEnabled"
+    },
+    {
+        "key": "shift+cmd+s",
+        "command": "-workbench.action.files.saveAs"
+    },
+    {
+        "key": "shift+cmd+s",
+        "command": "-workbench.action.files.saveLocalFile",
+        "when": "remoteFileDialogVisible"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+cmd+s",
+        "command": "editor.cpp.toggle"
+    },
+    {
+        "key": "ctrl+alt+a",
+        "command": "workbench.action.toggleKeybindingsLog"
+    }
+]

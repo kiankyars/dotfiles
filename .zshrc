@@ -84,8 +84,11 @@ _install_native_cli() {
   fi
 }
 
-# Keep vendor-specific CLI names explicit: `grok` and `cursor-agent`.
+# Keep vendor-specific CLI names explicit and prefer Homebrew's Cursor Agent.
 _remove_ambiguous_agent_launchers() {
+  local canonical_cursor_agent="/opt/homebrew/bin/cursor-agent"
+  local canonical_target
+  local legacy_cursor_agent="$HOME/.local/bin/cursor-agent"
   local launcher
   local target
 
@@ -110,6 +113,38 @@ _remove_ambiguous_agent_launchers() {
         ;;
     esac
   done
+
+  if [[ -L "$legacy_cursor_agent" ]]; then
+    target="$(/usr/bin/readlink "$legacy_cursor_agent")" || return 1
+    case "$target" in
+      "$HOME"/.local/share/cursor-agent/versions/*/cursor-agent)
+        ;;
+      *)
+        echo "Refusing to remove unexpected Cursor Agent symlink: $legacy_cursor_agent -> $target" >&2
+        return 1
+        ;;
+    esac
+
+    if [[ ! -L "$canonical_cursor_agent" || ! -x "$canonical_cursor_agent" ]]; then
+      echo "Homebrew Cursor Agent launcher is unavailable: $canonical_cursor_agent" >&2
+      return 1
+    fi
+
+    canonical_target="$(/usr/bin/readlink "$canonical_cursor_agent")" || return 1
+    case "$canonical_target" in
+      /opt/homebrew/Caskroom/cursor-cli/*/dist-package/cursor-agent)
+        /bin/rm -f "$legacy_cursor_agent" || return 1
+        echo "==> Removed legacy Cursor Agent launcher: $legacy_cursor_agent"
+        ;;
+      *)
+        echo "Refusing unexpected Homebrew Cursor Agent target: $canonical_cursor_agent -> $canonical_target" >&2
+        return 1
+        ;;
+    esac
+  elif [[ -e "$legacy_cursor_agent" ]]; then
+    echo "Refusing to remove unexpected non-symlink: $legacy_cursor_agent" >&2
+    return 1
+  fi
 
   rehash
 }
