@@ -27,6 +27,15 @@
       "skillFolderHash": "68573a26b889d30026a67a6b39f931c5b249758d",
       "installedAt": "2026-08-04T22:24:29.402Z",
       "updatedAt": "2026-08-23T21:14:38.327Z"
+    },
+    "review-ml-textbook": {
+      "source": "kiankyars/rlvrbook",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kiankyars/rlvrbook.git",
+      "skillPath": ".agents/skills/review-ml-textbook/SKILL.md",
+      "skillFolderHash": "e6a2a852233ecdaa563ded28709e08b15a0c639b",
+      "installedAt": "2026-08-23T22:39:41.410Z",
+      "updatedAt": "2026-08-23T22:39:41.410Z"
     }
   },
   "dismissed": {
