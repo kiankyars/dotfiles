@@ -84,71 +84,6 @@ _install_native_cli() {
   fi
 }
 
-# Keep vendor-specific CLI names explicit and prefer Homebrew's Cursor Agent.
-_remove_ambiguous_agent_launchers() {
-  local canonical_cursor_agent="/opt/homebrew/bin/cursor-agent"
-  local canonical_target
-  local legacy_cursor_agent="$HOME/.local/bin/cursor-agent"
-  local launcher
-  local target
-
-  for launcher in "$HOME/.grok/bin/agent" "$HOME/.local/bin/agent"; do
-    if [[ ! -L "$launcher" ]]; then
-      if [[ -e "$launcher" ]]; then
-        echo "Refusing to remove unexpected non-symlink: $launcher" >&2
-        return 1
-      fi
-      continue
-    fi
-
-    target="$(/usr/bin/readlink "$launcher")" || return 1
-    case "$target" in
-      *grok*|*cursor-agent*)
-        /bin/rm -f "$launcher" || return 1
-        echo "==> Removed ambiguous agent launcher: $launcher"
-        ;;
-      *)
-        echo "Refusing to remove unexpected agent symlink: $launcher -> $target" >&2
-        return 1
-        ;;
-    esac
-  done
-
-  if [[ -L "$legacy_cursor_agent" ]]; then
-    target="$(/usr/bin/readlink "$legacy_cursor_agent")" || return 1
-    case "$target" in
-      "$HOME"/.local/share/cursor-agent/versions/*/cursor-agent)
-        ;;
-      *)
-        echo "Refusing to remove unexpected Cursor Agent symlink: $legacy_cursor_agent -> $target" >&2
-        return 1
-        ;;
-    esac
-
-    if [[ ! -L "$canonical_cursor_agent" || ! -x "$canonical_cursor_agent" ]]; then
-      echo "Homebrew Cursor Agent launcher is unavailable: $canonical_cursor_agent" >&2
-      return 1
-    fi
-
-    canonical_target="$(/usr/bin/readlink "$canonical_cursor_agent")" || return 1
-    case "$canonical_target" in
-      /opt/homebrew/Caskroom/cursor-cli/*/dist-package/cursor-agent)
-        /bin/rm -f "$legacy_cursor_agent" || return 1
-        echo "==> Removed legacy Cursor Agent launcher: $legacy_cursor_agent"
-        ;;
-      *)
-        echo "Refusing unexpected Homebrew Cursor Agent target: $canonical_cursor_agent -> $canonical_target" >&2
-        return 1
-        ;;
-    esac
-  elif [[ -e "$legacy_cursor_agent" ]]; then
-    echo "Refusing to remove unexpected non-symlink: $legacy_cursor_agent" >&2
-    return 1
-  fi
-
-  rehash
-}
-
 # Sync command-line tools, Cursor extensions, and dotfiles configuration.
 synchronisation() {
   local autoupdate_plist="$HOME/Library/LaunchAgents/com.github.domt4.homebrew-autoupdate.plist"
@@ -167,7 +102,6 @@ synchronisation() {
 
   _install_native_cli "Grok CLI" "grok" "https://x.ai/cli/install.sh" || return 1
   _install_native_cli "Claude Code" "claude" "https://claude.ai/install.sh" || return 1
-  _remove_ambiguous_agent_launchers || return 1
 
   if [[ -x "$cursor_launcher" ]]; then
     echo "==> Syncing Cursor extensions..."
